@@ -52,9 +52,12 @@ namespace WindowsApplication1
 
         private void timer1_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            label1.Text = String.Format("textBox1.Text = {0}", textBox1.Text);
-            label2.Text = String.Format("textBox1.Text = {0}", textBox2.Text);
-            label3.Text = String.Format("gridView1.DataRowCount = {0}", (_GridControl.MainView as GridView).DataRowCount);
+            if (_GridControl != null && _GridControl.MainView!=null)
+            {
+                label1.Text = String.Format("textBox1.Text = {0}", textBox1.Text);
+                label2.Text = String.Format("textBox1.Text = {0}", textBox2.Text);
+                label3.Text = String.Format("gridView1.DataRowCount = {0}", (_GridControl.MainView as GridView).DataRowCount);
+            }
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
