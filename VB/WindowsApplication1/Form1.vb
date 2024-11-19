@@ -46,9 +46,11 @@ Namespace WindowsApplication1
         End Sub
 
         Private Sub timer1_Elapsed(ByVal sender As Object, ByVal e As Timers.ElapsedEventArgs)
-            label1.Text = String.Format("textBox1.Text = {0}", textBox1.Text)
-            label2.Text = String.Format("textBox1.Text = {0}", textBox2.Text)
-            label3.Text = String.Format("gridView1.DataRowCount = {0}", TryCast(_GridControl.MainView, GridView).DataRowCount)
+            If _GridControl IsNot Nothing AndAlso _GridControl.MainView IsNot Nothing Then
+                label1.Text = String.Format("textBox1.Text = {0}", textBox1.Text)
+                label2.Text = String.Format("textBox1.Text = {0}", textBox2.Text)
+                label3.Text = String.Format("gridView1.DataRowCount = {0}", TryCast(_GridControl.MainView, GridView).DataRowCount)
+            End If
         End Sub
 
         Private Sub simpleButton1_Click(ByVal sender As Object, ByVal e As EventArgs)
